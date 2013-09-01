@@ -1910,6 +1910,14 @@ let result = let callPackage = x : y : modifyPrio (newScope result.final x y);
   };
 
   symbol = callPackage ../development/libraries/haskell/symbol {};
+  fay = callPackage ../development/libraries/haskell/fay { haskellSrcExts = self.haskellSrcExts_1_14_0; };
+  suave = callPackage ../development/libraries/haskell/suave { };
+  languageEcmascript = callPackage ../development/libraries/haskell/language-ecmascript { QuickCheck = self.QuickCheck_2_5_1_1; };
+  webkit = callPackage ../development/libraries/haskell/webkit { 
+    "webkit-native" = pkgs.webkit_gtk2; 
+    "libsoup-native" = pkgs.libsoup;
+  };
+
 
   systemFilepath = callPackage ../development/libraries/haskell/system-filepath {};
 
