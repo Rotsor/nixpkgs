@@ -4308,6 +4308,8 @@ let
 
     async_extra = callPackage ../development/ocaml-modules/async_extra { };
 
+    async_rpc_kernel = callPackage ../development/ocaml-modules/async_rpc_kernel { };
+
     async_find = callPackage ../development/ocaml-modules/async_find { };
 
     async_kernel = callPackage ../development/ocaml-modules/async_kernel { };
@@ -4622,9 +4624,10 @@ let
     type_conv_108_08_00 = callPackage ../development/ocaml-modules/type_conv/108.08.00.nix { };
     type_conv_109_60_01 = callPackage ../development/ocaml-modules/type_conv/109.60.01.nix { };
     type_conv_112_01_01 = callPackage ../development/ocaml-modules/type_conv/112.01.01.nix { };
+    type_conv_113_00_00 = callPackage ../development/ocaml-modules/type_conv/113.00.00.nix { };
     type_conv =
       if lib.versionOlder "4.02" ocaml_version
-      then type_conv_112_01_01
+      then type_conv_113_00_00
       else if lib.versionOlder "4.00" ocaml_version
       then type_conv_109_60_01
       else if lib.versionOlder "3.12" ocaml_version
@@ -4634,10 +4637,11 @@ let
     sexplib_108_08_00 = callPackage ../development/ocaml-modules/sexplib/108.08.00.nix { };
     sexplib_111_25_00 = callPackage ../development/ocaml-modules/sexplib/111.25.00.nix { };
     sexplib_112_24_01 = callPackage ../development/ocaml-modules/sexplib/112.24.01.nix { };
+    sexplib_113_00_00 = callPackage ../development/ocaml-modules/sexplib/113.00.00.nix { };
 
     sexplib =
       if lib.versionOlder "4.02" ocaml_version
-      then sexplib_112_24_01
+      then sexplib_113_00_00
       else if lib.versionOlder "4.00" ocaml_version
       then sexplib_111_25_00
       else if lib.versionOlder "3.12" ocaml_version
@@ -4656,6 +4660,7 @@ let
     pa_bench = callPackage ../development/ocaml-modules/pa_bench { };
 
     pa_test = callPackage ../development/ocaml-modules/pa_test { };
+    pa_structural_sexp = callPackage ../development/ocaml-modules/pa_structural_sexp { };
 
     pipebang = callPackage ../development/ocaml-modules/pipebang { };
 

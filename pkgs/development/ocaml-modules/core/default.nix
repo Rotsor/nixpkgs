@@ -1,22 +1,22 @@
 {stdenv, buildOcaml, fetchurl, type_conv,
  core_kernel, bin_prot, comparelib, custom_printf, enumerate,
- fieldslib, herelib, pa_bench, pa_test, pa_ounit,
+ fieldslib, herelib, pa_bench, pa_test, pa_structural_sexp, pa_ounit,
  pipebang, sexplib, typerep, variantslib}:
 
 buildOcaml rec {
   name = "core";
-  version = "112.24.01";
+  version = "113.00.00";
 
   minimumSupportedOcamlVersion = "4.02";
 
   src = fetchurl {
     url = "https://github.com/janestreet/core/archive/${version}.tar.gz";
-    sha256 = "be5d53ebd4fd04ef23ebf9b3b2840c7aeced6bc4cc6cd3f5e89f71c9949000f4";
+    sha256 = "1wxp461av6fj85yvsnripjdinspkjhcybdrnpnrg7vn76y198vsx";
   };
 
   hasSharedObjects = true;
 
-  buildInputs = [ pa_bench pa_test pa_ounit ];
+  buildInputs = [ pa_bench pa_test pa_structural_sexp pa_ounit ];
   propagatedBuildInputs = [ type_conv core_kernel bin_prot comparelib
                             custom_printf enumerate fieldslib herelib
                             pipebang sexplib typerep variantslib ];

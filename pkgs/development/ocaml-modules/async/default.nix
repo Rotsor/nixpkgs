@@ -1,18 +1,19 @@
 {stdenv, buildOcaml, fetchurl, async_kernel,
- async_unix, async_extra, pa_ounit}:
+ async_unix, async_extra, async_rpc_kernel, pa_ounit}:
 
 buildOcaml rec {
   name = "async";
-  version = "112.24.00";
+  version = "113.00.00";
 
   minimumSupportedOcamlVersion = "4.02";
 
   src = fetchurl {
     url = "https://github.com/janestreet/async/archive/${version}.tar.gz";
-    sha256 = "ecc4ca939ab098e689332921b110dbaacd06d9f8d8bf697023dfff3ca37dc1e9";
+    sha256 = "141wpcsjqx4281nqqd1422vp6g6d5g53q139w3fg1ypqpypa7bf8";
   };
 
-  propagatedBuildInputs = [ async_kernel async_unix async_extra pa_ounit ];
+  buildInputs = [ async_extra ];
+  propagatedBuildInputs = [ async_kernel async_rpc_kernel async_unix async_extra pa_ounit ];
 
   meta = with stdenv.lib; {
     homepage = https://github.com/janestreet/async;

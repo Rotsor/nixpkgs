@@ -1,19 +1,19 @@
 {stdenv, buildOcaml, fetchurl, core_kernel,
- bin_prot, fieldslib, pa_ounit, pa_test,
+ bin_prot, fieldslib, pa_ounit, pa_test, pa_structural_sexp,
  sexplib, herelib}:
 
 buildOcaml rec {
   name = "async_kernel";
-  version = "112.24.00";
+  version = "113.00.00";
 
   minimumSupportedOcamlVersion = "4.02";
 
   src = fetchurl {
     url = "https://github.com/janestreet/async_kernel/archive/${version}.tar.gz";
-    sha256 = "95caf4249b55c5a6b38da56e314845e9ea9a0876eedd4cf0ddcb6c8dd660c6a0";
+    sha256 = "1675prwz922ynkkkipgbhahpcf7n68x5l23a28mc5w0z8rxm0071";
   };
 
-  buildInputs = [ pa_test pa_ounit ];
+  buildInputs = [ pa_test pa_structural_sexp pa_ounit ];
   propagatedBuildInputs = [ core_kernel bin_prot fieldslib herelib sexplib ];
 
   meta = with stdenv.lib; {
