@@ -38,6 +38,8 @@ stdenv.mkDerivation {
     done
   '';
 
+  pythonPath = [];
+
   enableParallelBuilding = true;
 
   meta = {
